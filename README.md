@@ -21,7 +21,7 @@ Email: drsaima.medico@gmail.com
 Follow for more information:
 
 Instagram: dr.saima
-YouTube: DrSaimaWellnessHub
+YouTube: [DrSaimaWellnessHub](https://www.youtube.com/@DrSaimaWellnessHub)
 LinkedIn: linkedin.com/in/drsaimashaikh
 
 ## Features
