@@ -20,9 +20,9 @@ Phone: +91 8369494260
 Email: drsaima.medico@gmail.com
 Follow for more information:
 
-Instagram: dr.saima
+Instagram: [dr.saima](https://www.instagram.com/_dr.saima_)
 YouTube: [DrSaimaWellnessHub](https://www.youtube.com/@DrSaimaWellnessHub)
-LinkedIn: linkedin.com/in/drsaimashaikh
+LinkedIn: https://www.linkedin.com/in/drsaimashaikh
 
 ## Features
 
