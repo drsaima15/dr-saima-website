@@ -1,33 +1,27 @@
-$(document).ready(function(){
-    var modal = $("#infoFormModal");
-    var closeBtn = $(".close");
-    var thankYouMessage = $("#thankYouMessage");
-    
-    // Show the modal when the page loads
-    modal.show();
+// JavaScript for dialog form and hamburger menu
 
-    // Close the modal when the user clicks on the close button
-    closeBtn.on("click", function() {
-        modal.hide();
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const infoDialog = document.getElementById('info-dialog');
+  const closeBtn = document.getElementById('close-btn');
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.querySelector('header nav');
+  const bookAppointmentButton = document.getElementById('book-appointment');
+  
+  // Open the info dialog on page load
+  infoDialog.style.display = 'block';
 
-    // Submit form and show thank you message
-    $("#infoForm").on("submit", function(event) {
-        event.preventDefault();
-        var formData = $(this).serialize();
+  // Close dialog
+  closeBtn.addEventListener('click', () => {
+    infoDialog.style.display = 'none';
+  });
 
-        $.ajax({
-            type: "POST",
-            url: "https://formsubmit.co/ajax/drsaima.medico@gmail.com", // Using formsubmit.co as an example
-            data: formData,
-            dataType: "json",
-            success: function() {
-                thankYouMessage.show();
-                $("#infoForm").hide();
-            },
-            error: function() {
-                alert("There was an error submitting the form. Please try again.");
-            }
-        });
-    });
+  // Toggle the menu on mobile view
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  // Handle book appointment button
+  bookAppointmentButton.addEventListener('click', () => {
+    infoDialog.style.display = 'block';
+  });
 });

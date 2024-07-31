@@ -1,57 +1,377 @@
+/* General Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-header, section {
-    margin: 20px 0;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+header {
+  text-align: center;
+  padding: 50px 0;
+  background-color: #333;
+  color: #fff;
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+header p {
+  margin: 10px 0 0;
+  font-size: 1.2em;
 }
 
-.close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+nav.sticky-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #fff; /* White background for the nav */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
-form {
-    display: flex;
+nav.sticky-nav .logo {
+  height: 50px; /* Adjust based on your design */
+  width: auto; /* Maintains aspect ratio */
+}
+
+nav.sticky-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center align the menu items */
+  flex-grow: 1; /* Make the ul grow to fill space */
+}
+
+nav.sticky-nav ul li {
+  margin: 0 15px;
+}
+
+nav.sticky-nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+nav.sticky-nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.action-menu {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.action-menu button,
+.action-menu a {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.action-menu button:hover,
+.action-menu a:hover {
+  background-color: #0056b3;
+}
+
+main {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+section h2 {
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+section p, section ul {
+  color: #555;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+section ul {
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+#info-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  z-index: 1000;
+  display: none;
+}
+
+.dialog-content {
+  position: relative;
+}
+
+#close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #aaa;
+}
+
+#info-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#info-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.required {
+  color: red;
+  font-size: 1.2em;
+}
+
+#info-form input,
+#info-form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Ensure inputs and textareas take full width */
+}
+
+#info-form input::placeholder,
+#info-form textarea::placeholder {
+  color: #aaa;
+}
+
+#info-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#info-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 70vh;
+  background-image: url('/Users/sufiyan.mansuri/Documents/dr-saima-website/images/3.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+}
+
+.hero-content button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hero-content button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  nav.sticky-nav ul {
     flex-direction: column;
-}
+    align-items: center;
+  }
 
-form label {
+  nav.sticky-nav ul li {
     margin: 5px 0;
+  }
+
+  .action-menu {
+    flex-direction: column;
+  }
+
+  .action-menu button,
+  .action-menu a {
+    margin: 5px 0;
+    font-size: 1em;
+  }
+
+  #info-dialog {
+    width: 95%;
+    max-width: none;
+  }
+
+  .hero-content h1 {
+    font-size: 2em;
+  }
+
+  .hero-content p {
+    font-size: 1.2em;
+  }
+
+  .hero-content button {
+    font-size: 1em;
+  }
 }
 
-form input, form textarea {
-    margin: 5px 0 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  header p {
+    font-size: 0.9em;
+  }
+
+  nav.sticky-nav .logo {
+    height: 30px;
+  }
+
+  nav.sticky-nav ul li a {
+    font-size: 1em;
+  }
+
+  .action-menu button,
+  .action-menu a {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
+  #info-dialog {
+    width: 100%;
+    padding: 15px;
+  }
+
+  #info-form input,
+  #info-form textarea {
+    font-size: 1em;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5em;
+  }
+
+  .hero-content p {
+    font-size: 1em;
+  }
+
+  .hero-content button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}
+
+/* Center-align the action menu items on mobile */
+@media (max-width: 768px) {
+  .action-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-menu button,
+  .action-menu a {
+    width: 100%; /* Make buttons full width */
+    max-width: 300px; /* Optional: limit the width of buttons */
+    text-align: center; /* Center text inside buttons */
+  }
+
+  .action-menu button {
+    margin: 5px 0; /* Margin between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .action-menu button,
+  .action-menu a {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    width: 100%; /* Ensure buttons are full width on smaller screens */
+    max-width: none; /* Remove width limitation */
+  }
+}
+
+/* Ensure smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
 }
