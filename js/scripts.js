@@ -33,15 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetch(infoForm.action, {
       method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error('Network response was not ok.');
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
       }
     })
+    .then(response => response.json())
     .then(data => {
       if (data.success) {
         responseMessage.textContent = 'Thank you for your submission!';
