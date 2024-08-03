@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('header nav');
   const bookAppointmentButton = document.getElementById('book-appointment');
   const infoForm = document.getElementById('info-form');
-  const responseMessage = document.getElementById('response-message');
-  
+  const responseMessage = document.createElement('div'); // Create response message element
+  responseMessage.id = 'response-message';
+  infoDialog.querySelector('.dialog-content').appendChild(responseMessage); // Add response message to dialog
+
   // Open the info dialog on page load
   infoDialog.style.display = 'block';
 
