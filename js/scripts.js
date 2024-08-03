@@ -35,23 +35,28 @@ document.addEventListener('DOMContentLoaded', () => {
       method: 'POST',
       body: formData
     })
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Network response was not ok.');
+      }
+    })
     .then(data => {
       if (data.success) {
         responseMessage.textContent = 'Thank you for your submission!';
+        responseMessage.style.color = 'green';
         responseMessage.style.display = 'block';
         infoForm.reset(); // Reset the form fields
         setTimeout(() => {
           infoDialog.style.display = 'none'; // Optionally close the dialog after a few seconds
         }, 3000);
       } else {
-        responseMessage.textContent = 'There was an error submitting the form. Please try again.';
-        responseMessage.style.color = 'red';
-        responseMessage.style.display = 'block';
+        throw new Error('Form submission was not successful.');
       }
     })
     .catch(error => {
-      responseMessage.textContent = 'There was an error submitting the form. Please try again.';
+      responseMessage.textContent = `There was an error submitting the form: ${error.message}`;
       responseMessage.style.color = 'red';
       responseMessage.style.display = 'block';
     });
