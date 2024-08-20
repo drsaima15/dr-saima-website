@@ -339,7 +339,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dr. Saima Shaikh's Health and Wellness Hub</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <script src="https://kit.fontawesome.com/1d262f6843.js" crossorigin="anonymous"></script>
   <script src="js/scripts.js" defer></script>
 </head>
@@ -410,28 +410,30 @@
     </footer>
   </div>
 
-  <!-- Info Dialog -->
-  <div id="info-dialog">
-    <div class="dialog-content">
-      <span id="close-btn">&times;</span>
-      <h2>Request an appointment</h2>
-      <form id="info-form" action="https://formsubmit.co/ajax/drsaima.medico@gmail.com" method="POST">
-        <label for="name">Name<span class="required">*</span></label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        
-        <label for="phone">Phone<span class="required">*</span></label>
-        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="\+?[0-9\s]{10,15}" title="Please enter a valid phone number. It should be between 10 to 15 digits, optionally starting with a '+' for the international code." required>
-        
-        <label for="email">Email<span class="required">*</span></label>
-        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
-        
-        <label for="message">Message<span class="required">*</span></label>
-        <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-        
-        <button type="submit">Submit</button>
-      </form>
-      <div id="response-message" style="display:none; color:green; margin-top:10px;"></div>
-    </div>
+<!-- Info Dialog -->
+<div id="info-dialog">
+  <div class="dialog-content">
+    <span id="close-btn">&times;</span>
+    <h2>Request an appointment</h2>
+    <form id="info-form" action="https://formsubmit.co/ajax/drsaima.medico@gmail.com" method="POST">
+      <label for="name">Name<span class="required">*</span></label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      
+      <label for="phone">Phone<span class="required">*</span></label>
+      <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="\+?[0-9\s]{10,15}" title="Please enter a valid phone number. It should be between 10 to 15 digits, optionally starting with a '+' for the international code." required>
+      
+      <label for="email">Email<span class="required">*</span></label>
+      <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+      
+      <label for="message">Message<span class="required">*</span></label>
+      <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+      
+      <button type="submit">Submit</button>
+    </form>
+    <div id="response-message" style="display:none; color:green; margin-top:10px;"></div>
   </div>
+</div>
+
+  
 </body>
 </html>
