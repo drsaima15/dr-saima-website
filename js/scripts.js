@@ -1,44 +1,63 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Info Dialog Handling
+document.addEventListener('DOMContentLoaded', () => {
   const infoDialog = document.getElementById('info-dialog');
   const closeBtn = document.getElementById('close-btn');
+  const menuToggle = document.getElementById('menu-toggle');
+  const nav = document.querySelector('header nav');
+  const bookAppointmentButton = document.getElementById('book-appointment');
   const infoForm = document.getElementById('info-form');
-  const responseMessage = document.getElementById('response-message');
+  const responseMessage = document.createElement('div'); // Create response message element
+  responseMessage.id = 'response-message';
+  infoDialog.querySelector('.dialog-content').appendChild(responseMessage); // Add response message to dialog
 
-  setTimeout(function() {
-    infoDialog.style.display = 'block';
-  }, 1000);
+  // Open the info dialog on page load
+  infoDialog.style.display = 'block';
 
-  closeBtn.addEventListener('click', function() {
+  // Close dialog
+  closeBtn.addEventListener('click', () => {
     infoDialog.style.display = 'none';
   });
 
-  infoForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+  // Toggle the menu on mobile view
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  // Handle book appointment button
+  bookAppointmentButton.addEventListener('click', () => {
+    infoDialog.style.display = 'block';
+  });
+
+  // Handle form submission
+  infoForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent the default form submission
 
     const formData = new FormData(infoForm);
 
     fetch(infoForm.action, {
       method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-      },
       body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
     })
     .then(response => response.json())
     .then(data => {
-      responseMessage.innerHTML = "Thank you! Your request has been submitted successfully.";
-      responseMessage.style.display = 'block';
-      infoForm.reset();
+      if (data.success) {
+        responseMessage.textContent = 'Thank you for your submission!';
+        responseMessage.style.color = 'green';
+        responseMessage.style.display = 'block';
+        infoForm.reset(); // Reset the form fields
+        setTimeout(() => {
+          infoDialog.style.display = 'none'; // Optionally close the dialog after a few seconds
+        }, 3000);
+      } else {
+        throw new Error('Form submission was not successful.');
+      }
     })
     .catch(error => {
-      responseMessage.innerHTML = "Oops! There was a problem submitting your request.";
+      responseMessage.textContent = There was an error submitting the form: ${error.message};
+      responseMessage.style.color = 'red';
       responseMessage.style.display = 'block';
     });
-  });
-
-  // Smooth Scroll for Learn More Button
-  document.getElementById('learn-more').addEventListener('click', function() {
-    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
   });
 });
